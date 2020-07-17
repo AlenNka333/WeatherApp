@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3322F31724C22E1A007C56A8 /* GradientScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3322F31624C22E1A007C56A8 /* GradientScreenViewController.swift */; };
 		335AED8D24C0C74000554237 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335AED8C24C0C74000554237 /* AppDelegate.swift */; };
 		335AED9124C0C74000554237 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335AED9024C0C74000554237 /* ViewController.swift */; };
 		335AED9624C0C74500554237 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 335AED9524C0C74500554237 /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3322F31624C22E1A007C56A8 /* GradientScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientScreenViewController.swift; sourceTree = "<group>"; };
 		335AED8924C0C74000554237 /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		335AED8C24C0C74000554237 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		335AED9024C0C74000554237 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 				335AEDA124C0DC5500554237 /* MainScreenViewController.swift */,
 				335AEDA224C0DC5500554237 /* MainScreenViewController.xib */,
 				335AEDA924C0E7DD00554237 /* WeatherParamView */,
+				3322F31624C22E1A007C56A8 /* GradientScreenViewController.swift */,
 			);
 			path = MainScreen;
 			sourceTree = "<group>";
@@ -167,6 +170,7 @@
 			files = (
 				335AED9124C0C74000554237 /* ViewController.swift in Sources */,
 				335AED8D24C0C74000554237 /* AppDelegate.swift in Sources */,
+				3322F31724C22E1A007C56A8 /* GradientScreenViewController.swift in Sources */,
 				335AEDA624C0DF5A00554237 /* WeatherParamView.swift in Sources */,
 				335AEDA324C0DC5500554237 /* MainScreenViewController.swift in Sources */,
 			);

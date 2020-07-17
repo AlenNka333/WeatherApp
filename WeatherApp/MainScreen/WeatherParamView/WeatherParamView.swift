@@ -51,19 +51,4 @@ import UIKit
         super.init(coder: coder)
         commonInit()
     }
-//    private let titleLabel = UILabel()
-//    private let valueLabel = UILabel()
-//    private let imageView = UIImageView()
-    
-//    override func layoutSubviews() {
-//        super.layoutSubviews()
-//
-//        addSubview(imageView)
-//        imageView.frame = CGRect(x: bounds.midX - 15,
-//                                 y: 5,
-//                                 width: 30,
-//                                 height: 30)
-//        addSubview(titleLabel)
-//        titleLabel.frame =
-//    }
 }

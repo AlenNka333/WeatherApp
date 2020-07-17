@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainScreenViewController" customModule="WeatherApp" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GradientScreenViewController" customModule="WeatherApp" customModuleProvider="target">
             <connections>
                 <outlet property="cityNameTextField" destination="5Af-v6-Zq9" id="Uvm-Tv-mP7"/>
                 <outlet property="humidityView" destination="Ddp-5w-LTq" id="0RI-yP-kg9"/>
@@ -16,7 +16,7 @@
                 <outlet property="sunriseView" destination="ssf-1n-U2S" id="BlJ-if-WxF"/>
                 <outlet property="sunsetView" destination="lqV-KA-GBB" id="cKY-BF-zha"/>
                 <outlet property="temperatureLabel" destination="GC4-0m-R0U" id="5gH-RZ-0Yh"/>
-                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="xPg-T0-yJu"/>
                 <outlet property="weatherDescriptionLabel" destination="y3h-Ce-GC1" id="gCH-kd-wUq"/>
                 <outlet property="windView" destination="1uT-3s-1dC" id="Sxl-L5-UuQ"/>
             </connections>
@@ -26,7 +26,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
             <subviews>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Af-v6-Zq9">
-                    <rect key="frame" x="132" y="72" width="111" height="40"/>
+                    <rect key="frame" x="132" y="72" width="34" height="40"/>
                     <color key="backgroundColor" red="0.4644533473447468" green="0.14089156992414717" blue="0.76010394066118347" alpha="0.33355629280821919" colorSpace="custom" customColorSpace="displayP3"/>
                     <accessibility key="accessibilityConfiguration" hint="City name"/>
                     <constraints>
