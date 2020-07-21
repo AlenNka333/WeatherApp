@@ -31,40 +31,36 @@ class ApiDataManager {
     }
     
     func getCurrentWeather (with location: CLLocationCoordinate2D, completion: @escaping (Result<CurrentWeather, Error>) -> ()) {
-       getNetworkAnswer(with: location, url: currentWeatherUrl) {
-           switch $0 {
-           case .failure(let error):
-               completion(.failure(error))
+       getNetworkAnswer(with: location, url: currentWeatherUrl) { (result: Result<CurrentWeather, Error>) in
+           switch result {
+           case .failure:
+               completion(.failure(ApiDataManagerErrors.decodeError))
                return
-           case .success(let data):
-               guard let result = try? self.decoder.decode(CurrentWeather.self, from: data!) else {
-                   completion(.failure(ApiDataManagerErrors.invalidData))
-                   return
-               }
-               completion(.success(result))
+           case .success(let weather):
+               completion(.success(weather))
+               return
            }
+           
        }
     }
     
     func getForecastWeather(with location: CLLocationCoordinate2D, completion: @escaping(Result<ForecastWeather, Error>) -> ()){
-        getNetworkAnswer(with: location, url: forecastWeatherUrl) {
-            switch $0 {
-            case .failure(let error):
-                completion(.failure(error))
+        getNetworkAnswer(with: location, url: forecastWeatherUrl) { (result: Result<ForecastWeather, Error>) in
+            switch result {
+            case .failure:
+                completion(.failure(ApiDataManagerErrors.decodeError))
                 return
-            case .success(let data):
-                guard let result = try? self.decoder.decode(ForecastWeather.self, from: data!) else {
-                    completion(.failure(ApiDataManagerErrors.invalidData))
-                    return
-                }
-                completion(.success(result))
+            case .success(let weather):
+                completion(.success(weather))
+                return
             }
+            
         }
     }
     
     
     
-    func getNetworkAnswer(with location: CLLocationCoordinate2D, url: String, completion: @escaping (Result<Data?, Error>) -> ()) {
+    func getNetworkAnswer<T: Decodable>(with location: CLLocationCoordinate2D, url: String, completion: @escaping (Result<T, Error>) -> ()) {
         
         guard var urlComponents = URLComponents(string: url) else {
             completion(.failure(ApiDataManagerErrors.invalidURL))
@@ -104,7 +100,12 @@ class ApiDataManager {
                     return
                 }
                 
-                completion(.success(data))
+                guard let result = try? self.decoder.decode(T.self, from: data) else {
+                    completion(.failure(ApiDataManagerErrors.invalidData))
+                    return
+                }
+                completion(.success(result))
+                
             }
         }.resume()
         
