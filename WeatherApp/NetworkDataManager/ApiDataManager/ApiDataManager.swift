@@ -40,7 +40,6 @@ class ApiDataManager {
                completion(.success(weather))
                return
            }
-           
        }
     }
     
@@ -54,12 +53,11 @@ class ApiDataManager {
                 completion(.success(weather))
                 return
             }
-            
         }
     }
-    
-    
-    
+}
+
+private extension ApiDataManager {
     func getNetworkAnswer<T: Decodable>(with location: CLLocationCoordinate2D, url: String, completion: @escaping (Result<T, Error>) -> ()) {
         
         guard var urlComponents = URLComponents(string: url) else {
@@ -105,9 +103,8 @@ class ApiDataManager {
                     return
                 }
                 completion(.success(result))
-                
+        
             }
         }.resume()
-        
     }
 }
