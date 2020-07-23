@@ -7,41 +7,47 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="GradientScreenViewController" customModule="WeatherApp" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainScreenViewController" customModule="WeatherApp" customModuleProvider="target">
             <connections>
-                <outlet property="cityNameTextField" destination="5Af-v6-Zq9" id="Uvm-Tv-mP7"/>
-                <outlet property="humidityView" destination="Ddp-5w-LTq" id="0RI-yP-kg9"/>
-                <outlet property="lastUpdateTimeLabel" destination="orn-Np-QxC" id="btq-Rt-UYL"/>
-                <outlet property="pressureView" destination="NGg-2T-56f" id="JJk-Sr-3UU"/>
-                <outlet property="sunriseView" destination="ssf-1n-U2S" id="BlJ-if-WxF"/>
-                <outlet property="sunsetView" destination="lqV-KA-GBB" id="cKY-BF-zha"/>
-                <outlet property="temperatureLabel" destination="GC4-0m-R0U" id="5gH-RZ-0Yh"/>
-                <outlet property="view" destination="i5M-Pr-FkT" id="xPg-T0-yJu"/>
-                <outlet property="weatherDescriptionLabel" destination="y3h-Ce-GC1" id="gCH-kd-wUq"/>
-                <outlet property="windView" destination="1uT-3s-1dC" id="Sxl-L5-UuQ"/>
+                <outlet property="cityNameTextField" destination="5Af-v6-Zq9" id="S73-Hq-Cs4"/>
+                <outlet property="humidityView" destination="Ddp-5w-LTq" id="97K-Bm-Hss"/>
+                <outlet property="lastUpdateTimeLabel" destination="orn-Np-QxC" id="DDp-np-KLL"/>
+                <outlet property="pressureView" destination="NGg-2T-56f" id="zdx-D5-RYN"/>
+                <outlet property="secondScreenButton" destination="XYZ-TZ-ydd" id="EeL-Yh-mkj"/>
+                <outlet property="stackView" destination="eFV-Tv-aEq" id="ovU-PS-B6j"/>
+                <outlet property="sunriseView" destination="ssf-1n-U2S" id="wbH-BM-OI5"/>
+                <outlet property="sunsetView" destination="lqV-KA-GBB" id="TNu-Lc-gOj"/>
+                <outlet property="temperatureLabel" destination="GC4-0m-R0U" id="gGL-0U-WfS"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="4na-3a-jiU"/>
+                <outlet property="weatherDescriptionLabel" destination="y3h-Ce-GC1" id="XPQ-I7-ehV"/>
+                <outlet property="windView" destination="1uT-3s-1dC" id="b1T-LB-khD"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
             <subviews>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Af-v6-Zq9">
-                    <rect key="frame" x="132" y="72" width="34" height="40"/>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="City name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Af-v6-Zq9">
+                    <rect key="frame" x="132" y="72" width="111" height="40"/>
                     <color key="backgroundColor" red="0.4644533473447468" green="0.14089156992414717" blue="0.76010394066118347" alpha="0.33355629280821919" colorSpace="custom" customColorSpace="displayP3"/>
                     <accessibility key="accessibilityConfiguration" hint="City name"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="CxQ-i0-Tzq"/>
                     </constraints>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="23"/>
-                    <textInputTraits key="textInputTraits"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="yes" returnKeyType="go"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                            <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                 </textField>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="orn-Np-QxC">
-                    <rect key="frame" x="142.33333333333334" y="120" width="90.333333333333343" height="58"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="orn-Np-QxC">
+                    <rect key="frame" x="187.66666666666666" y="120" width="0.0" height="58"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="58" id="o8K-5y-dei"/>
                     </constraints>
-                    <string key="text">Updated at:
-Time:</string>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
@@ -54,7 +60,7 @@ Time:</string>
                             <subviews>
                                 <view multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ssf-1n-U2S" customClass="WeatherParamView" customModule="WeatherApp" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="118.33333333333333" height="105"/>
-                                    <color key="backgroundColor" white="1" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="backgroundColor" white="1" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="105" id="TOM-RR-4nP"/>
@@ -66,7 +72,7 @@ Time:</string>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lqV-KA-GBB" customClass="WeatherParamView" customModule="WeatherApp" customModuleProvider="target">
                                     <rect key="frame" x="123.33333333333334" y="0.0" width="118.33333333333334" height="105"/>
-                                    <color key="backgroundColor" white="1" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="backgroundColor" white="1" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="105" id="Jtz-dp-jQ0"/>
@@ -78,7 +84,7 @@ Time:</string>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1uT-3s-1dC" customClass="WeatherParamView" customModule="WeatherApp" customModuleProvider="target">
                                     <rect key="frame" x="246.66666666666666" y="0.0" width="118.33333333333334" height="105"/>
-                                    <color key="backgroundColor" white="1" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="backgroundColor" white="1" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="105" id="dlm-e4-arh"/>
@@ -95,7 +101,7 @@ Time:</string>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NGg-2T-56f" customClass="WeatherParamView" customModule="WeatherApp" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="118.33333333333333" height="105"/>
-                                    <color key="backgroundColor" white="1" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="backgroundColor" white="1" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="105" id="ISN-gm-pY5"/>
@@ -107,7 +113,7 @@ Time:</string>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ddp-5w-LTq" customClass="WeatherParamView" customModule="WeatherApp" customModuleProvider="target">
                                     <rect key="frame" x="123.33333333333334" y="0.0" width="118.33333333333334" height="105"/>
-                                    <color key="backgroundColor" white="1" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="backgroundColor" white="1" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="105" id="L95-TF-rxQ"/>
@@ -121,22 +127,26 @@ Time:</string>
                                     <rect key="frame" x="246.66666666666666" y="0.0" width="118.33333333333334" height="105"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XYZ-TZ-ydd">
-                                            <rect key="frame" x="19.333333333333343" y="38.666666666666629" width="80" height="28"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="118.33333333333333" height="105"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                             <state key="normal" title="More details">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </state>
                                             <connections>
-                                                <action selector="goToForecastAction:" destination="-1" eventType="touchUpInside" id="eNK-LU-wkx"/>
+                                                <action selector="goToForecastAction:" destination="-1" eventType="touchUpInside" id="2hv-3L-UfR"/>
                                             </connections>
                                         </button>
                                     </subviews>
-                                    <color key="backgroundColor" white="1" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="backgroundColor" white="1" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstItem="XYZ-TZ-ydd" firstAttribute="centerY" secondItem="aNL-4e-h1I" secondAttribute="centerY" id="OVn-HL-58m"/>
+                                        <constraint firstItem="XYZ-TZ-ydd" firstAttribute="leading" secondItem="aNL-4e-h1I" secondAttribute="leading" id="Uam-vE-en0"/>
+                                        <constraint firstAttribute="trailing" secondItem="XYZ-TZ-ydd" secondAttribute="trailing" id="Wgq-nq-lHD"/>
+                                        <constraint firstItem="XYZ-TZ-ydd" firstAttribute="top" secondItem="aNL-4e-h1I" secondAttribute="top" id="X35-4v-DRh"/>
                                         <constraint firstItem="XYZ-TZ-ydd" firstAttribute="centerX" secondItem="aNL-4e-h1I" secondAttribute="centerX" id="XfJ-PI-bRZ"/>
                                         <constraint firstAttribute="height" constant="105" id="iYC-j9-grd"/>
+                                        <constraint firstAttribute="bottom" secondItem="XYZ-TZ-ydd" secondAttribute="bottom" id="rGC-qG-195"/>
                                     </constraints>
                                 </view>
                             </subviews>

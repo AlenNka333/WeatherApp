@@ -10,7 +10,7 @@ import Foundation
 
 struct CurrentWeather: Codable {
     let name: String
-    let dt: Int
+    let dt: Double
     let sys: SunRS
     let wind: Wind
     let main: Main

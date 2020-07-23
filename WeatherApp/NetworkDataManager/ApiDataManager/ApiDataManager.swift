@@ -58,7 +58,7 @@ class ApiDataManager {
 }
 
 private extension ApiDataManager {
-    func getNetworkAnswer<T: Decodable>(with location: CLLocationCoordinate2D, url: String, completion: @escaping (Result<T, Error>) -> ()) {
+    func getNetworkAnswer<T: Codable>(with location: CLLocationCoordinate2D, url: String, completion: @escaping (Result<T, Error>) -> ()) {
         
         guard var urlComponents = URLComponents(string: url) else {
             completion(.failure(ApiDataManagerErrors.invalidURL))

@@ -9,10 +9,13 @@
 
 import UIKit
 
-class ForecastViewController: UITableViewController{
+class ForecastTableViewController: UITableViewController{
     
     let cellId = "cellId"
-    let data = [Forecast]()
+    var data: ForecastWeather? = nil
+    var cityName: String = ""
+    
+    let service = WeatherService()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,22 +33,48 @@ class ForecastViewController: UITableViewController{
         view.layer.insertSublayer(gradientLayer, at:0)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        service.getForecastWeather(with: cityName, completion: loadDataCompletion)
+        self.tableView.reloadData()
+    }
+    
 
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data.count
+        return data?.list.count ?? 0
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! ForecastTableViewCell
-        cell.date.text = data[indexPath.row].dtTxt
-        cell.weatherDescription.text = data[indexPath.row].weather[0].description
-        cell.temperature.text = "\(data[indexPath.row].main.feelsLike) °C"
-        
+        cell.date.text = data?.list[indexPath.row].dt_txt
+        cell.weatherDescription.text = data?.list[indexPath.row].weather[0].description
+        cell.temperature.text = "\(data?.list[indexPath.row].main.feels_like ?? 0) °C"
         return cell
     }
 
 
 
+}
+
+private extension ForecastTableViewController {
+    var loadDataCompletion: ((Result<ForecastWeather, Error>) -> ()) {
+        return { [weak self] in
+            switch $0{
+            case .failure(let error):
+                self?.showAlert(with: error)
+            case .success(let result):
+                self?.data = result
+            }
+        }
+    }
+    
+    func showAlert(with error: Error) {
+        let alert = UIAlertController(title: "Warning", message: "\(error.localizedDescription)", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Dismiss", style: .default, handler: nil)
+        alert.addAction(action)
+        self.present(alert, animated: true, completion: nil)
+        
+    }
+    
 }
