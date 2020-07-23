@@ -17,7 +17,7 @@ class GradientScreenViewController: UIViewController {
     
     func makeGradientBackground() {
         let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = [UIColor.init(named: "Rebecca Purple")!.cgColor, UIColor.init(named: "Wisteria")!.cgColor]
+        gradientLayer.colors = [UIColor.init(named: "Picotee Blue")!.cgColor, UIColor.init(named: "Wisteria")!.cgColor]
         gradientLayer.locations = [0.0, 1.0]
         gradientLayer.frame = view.bounds
 
