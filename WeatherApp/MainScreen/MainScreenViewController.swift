@@ -111,13 +111,4 @@ private extension MainScreenViewController {
     
 }
 
-//MARK: - UITextFieldExtension
 
-private extension UITextField {
-    var isEmpty: Bool {
-        if let text = self.text, !text.isEmpty {
-             return false
-        }
-        return true
-    }
-}

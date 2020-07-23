@@ -17,6 +17,14 @@ class ForecastTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        commonInit()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func commonInit() {
         
         weatherImageView.translatesAutoresizingMaskIntoConstraints = false
         date.translatesAutoresizingMaskIntoConstraints = false
@@ -70,23 +78,8 @@ class ForecastTableViewCell: UITableViewCell {
         
         NSLayoutConstraint.activate(allConstraints)
     }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
 
 }
 
-extension UILabel {
-    
-    func setSizeFont (sizeFont: Double) {
-        self.font = UIFont(name: "Times New Roman", size: CGFloat(sizeFont))
-    }
-    
-}
 
 
