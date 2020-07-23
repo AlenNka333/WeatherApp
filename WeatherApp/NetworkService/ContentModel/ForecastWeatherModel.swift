@@ -18,8 +18,13 @@ struct City: Codable {
 }
 
 struct Forecast: Codable {
+    let main: Temperature
     let weather: Array<DetailWeather>
     let dtTxt: String
+}
+
+struct Temperature: Codable {
+    let feelsLike: String
 }
 
 struct DetailWeather: Codable {
