@@ -51,7 +51,7 @@ class ForecastTableViewCell: UITableViewCell {
         
         var allConstraints: [NSLayoutConstraint] = []
         allConstraints += NSLayoutConstraint.constraints(
-            withVisualFormat: "V:-[image(50)]",
+            withVisualFormat: "V:|-[image(50)]",
             options: [],
             metrics: nil,
             views: views)
@@ -66,7 +66,7 @@ class ForecastTableViewCell: UITableViewCell {
             metrics: nil,
             views: views)
         allConstraints += NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|-[image(50)]-[name]-|",
+            withVisualFormat: "H:|-[image(50)]-[date]-|",
             options: [],
             metrics: nil,
             views: views)

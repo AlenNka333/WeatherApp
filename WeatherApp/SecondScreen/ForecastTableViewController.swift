@@ -35,7 +35,7 @@ class ForecastTableViewController: UITableViewController{
     
     override func viewWillAppear(_ animated: Bool) {
         service.getForecastWeather(with: cityName, completion: loadDataCompletion)
-        self.tableView.reloadData()
+       
     }
     
 
@@ -47,9 +47,9 @@ class ForecastTableViewController: UITableViewController{
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! ForecastTableViewCell
-        cell.date.text = data?.list[indexPath.row].dt_txt
+        cell.date.text = data?.list[indexPath.row].dtTxt
         cell.weatherDescription.text = data?.list[indexPath.row].weather[0].description
-        cell.temperature.text = "\(data?.list[indexPath.row].main.feels_like ?? 0) °C"
+        cell.temperature.text = "\(data?.list[indexPath.row].main.feelsLike ?? 0) °C"
         return cell
     }
 
@@ -65,6 +65,7 @@ private extension ForecastTableViewController {
                 self?.showAlert(with: error)
             case .success(let result):
                 self?.data = result
+                self?.tableView.reloadData()
             }
         }
     }
