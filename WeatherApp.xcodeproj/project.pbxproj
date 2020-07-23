@@ -11,6 +11,11 @@
 		3322F31D24C23742007C56A8 /* ForecastWeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3322F31C24C23742007C56A8 /* ForecastWeatherModel.swift */; };
 		33326BB024C78C4000E1692C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335AED8C24C0C74000554237 /* AppDelegate.swift */; };
 		33326BB324C8850C00E1692C /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33326BB224C8850C00E1692C /* WeatherService.swift */; };
+		33326BC924C9C12400E1692C /* WeatherParamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33326BC424C9C12300E1692C /* WeatherParamView.swift */; };
+		33326BCA24C9C12400E1692C /* MainScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33326BC524C9C12300E1692C /* MainScreenViewController.xib */; };
+		33326BCB24C9C12400E1692C /* WeatherParamView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33326BC624C9C12300E1692C /* WeatherParamView.xib */; };
+		33326BCC24C9C12400E1692C /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33326BC724C9C12400E1692C /* MainScreenViewController.swift */; };
+		33326BCD24C9C12400E1692C /* GradientScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33326BC824C9C12400E1692C /* GradientScreenViewController.swift */; };
 		335AED9124C0C74000554237 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335AED9024C0C74000554237 /* ViewController.swift */; };
 		335AED9624C0C74500554237 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 335AED9524C0C74500554237 /* Assets.xcassets */; };
 		335AED9924C0C74500554237 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 335AED9724C0C74500554237 /* LaunchScreen.storyboard */; };
@@ -24,6 +29,11 @@
 		3322F31A24C23732007C56A8 /* CurrentWeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherModel.swift; sourceTree = "<group>"; };
 		3322F31C24C23742007C56A8 /* ForecastWeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastWeatherModel.swift; sourceTree = "<group>"; };
 		33326BB224C8850C00E1692C /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
+		33326BC424C9C12300E1692C /* WeatherParamView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeatherParamView.swift; sourceTree = "<group>"; };
+		33326BC524C9C12300E1692C /* MainScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainScreenViewController.xib; sourceTree = "<group>"; };
+		33326BC624C9C12300E1692C /* WeatherParamView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WeatherParamView.xib; sourceTree = "<group>"; };
+		33326BC724C9C12400E1692C /* MainScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainScreenViewController.swift; sourceTree = "<group>"; };
+		33326BC824C9C12400E1692C /* GradientScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientScreenViewController.swift; sourceTree = "<group>"; };
 		335AED8924C0C74000554237 /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		335AED8C24C0C74000554237 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		335AED9024C0C74000554237 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -65,6 +75,26 @@
 			path = ContentModel;
 			sourceTree = "<group>";
 		};
+		33326BCE24C9C12F00E1692C /* WeatherParamView */ = {
+			isa = PBXGroup;
+			children = (
+				33326BC424C9C12300E1692C /* WeatherParamView.swift */,
+				33326BC624C9C12300E1692C /* WeatherParamView.xib */,
+			);
+			path = WeatherParamView;
+			sourceTree = "<group>";
+		};
+		33326BCF24C9C13D00E1692C /* MainScreen */ = {
+			isa = PBXGroup;
+			children = (
+				33326BC824C9C12400E1692C /* GradientScreenViewController.swift */,
+				33326BC724C9C12400E1692C /* MainScreenViewController.swift */,
+				33326BC524C9C12300E1692C /* MainScreenViewController.xib */,
+				33326BCE24C9C12F00E1692C /* WeatherParamView */,
+			);
+			path = MainScreen;
+			sourceTree = "<group>";
+		};
 		335AED8024C0C74000554237 = {
 			isa = PBXGroup;
 			children = (
@@ -84,6 +114,7 @@
 		335AED8B24C0C74000554237 /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				33326BCF24C9C13D00E1692C /* MainScreen */,
 				3322F31824C236FF007C56A8 /* NetworkService */,
 				33F9B60E24C23B7C005B7770 /* ApiDataHelpers */,
 				33F9B60B24C23A13005B7770 /* NetworkDataManager */,
@@ -189,7 +220,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				335AED9924C0C74500554237 /* LaunchScreen.storyboard in Resources */,
+				33326BCB24C9C12400E1692C /* WeatherParamView.xib in Resources */,
 				335AED9624C0C74500554237 /* Assets.xcassets in Resources */,
+				33326BCA24C9C12400E1692C /* MainScreenViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,12 +234,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				33326BB024C78C4000E1692C /* AppDelegate.swift in Sources */,
+				33326BC924C9C12400E1692C /* WeatherParamView.swift in Sources */,
 				33326BB324C8850C00E1692C /* WeatherService.swift in Sources */,
 				335AED9124C0C74000554237 /* ViewController.swift in Sources */,
 				3322F31D24C23742007C56A8 /* ForecastWeatherModel.swift in Sources */,
 				3322F31B24C23732007C56A8 /* CurrentWeatherModel.swift in Sources */,
+				33326BCD24C9C12400E1692C /* GradientScreenViewController.swift in Sources */,
 				33F9B61224C31898005B7770 /* LocationHelperErrors.swift in Sources */,
 				33F9B61524C319AE005B7770 /* ApiDataManagerErrors.swift in Sources */,
+				33326BCC24C9C12400E1692C /* MainScreenViewController.swift in Sources */,
 				33F9B61024C23BA0005B7770 /* LocationHelper.swift in Sources */,
 				33F9B60D24C23A3F005B7770 /* ApiDataManager.swift in Sources */,
 			);
