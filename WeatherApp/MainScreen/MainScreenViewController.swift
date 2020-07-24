@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import CoreLocation
 
-class MainScreenViewController: GradientScreenViewController, UITextFieldDelegate {
+class MainScreenViewController: GradientScreenViewController, UITextFieldDelegate, CLLocationManagerDelegate {
     
+    let locationManager = CLLocationManager()
     var data: CurrentWeather? = nil
     let service = WeatherService()
     var cityName = ""
@@ -29,13 +31,26 @@ class MainScreenViewController: GradientScreenViewController, UITextFieldDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         cityNameTextField.delegate = self
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         hideElements(with: true)
-        
-        //get weather according to current gps location
-        // need to get permission for gps
+        locationManager.delegate = self
+        locationManager.requestAlwaysAuthorization()
+        locationManager.requestLocation()
+    }
+    
+    //MARK: - LocationManager
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.first {
+            self.service.getCurrentWeather(with: location.coordinate, completion: loadDataCompletion)
+        }
+    }
+
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        showAlert(with: error)
     }
     
     
@@ -93,6 +108,10 @@ private extension MainScreenViewController {
                 self?.showAlert(with: error)
             case .success(let result):
                 self?.data = result
+                if self?.cityNameTextField.text?.isEmpty ?? true {
+                    self?.cityNameTextField.text = self?.data?.name ?? ""
+                    self?.cityName = self?.data?.name ?? ""
+                }
                 self?.updateUI()
             }
         }
