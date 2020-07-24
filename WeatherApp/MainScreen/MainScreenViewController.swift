@@ -48,6 +48,9 @@ class MainScreenViewController: GradientScreenViewController, UITextFieldDelegat
         self.present(navigationController, animated: true, completion: nil)
     }
     
+    @IBAction func updateDataAction(_ sender: UIButton) {
+        service.getCurrentWeather(with: cityName, completion: loadDataCompletion)
+    }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)

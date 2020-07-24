@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina5_9" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -25,10 +25,10 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <subviews>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="City name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Af-v6-Zq9">
-                    <rect key="frame" x="132" y="72" width="111" height="40"/>
+                    <rect key="frame" x="132" y="72" width="150" height="40"/>
                     <color key="backgroundColor" red="0.4644533473447468" green="0.14089156992414717" blue="0.76010394066118347" alpha="0.33355629280821919" colorSpace="custom" customColorSpace="displayP3"/>
                     <accessibility key="accessibilityConfiguration" hint="City name"/>
                     <constraints>
@@ -44,7 +44,7 @@
                     </userDefinedRuntimeAttributes>
                 </textField>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="orn-Np-QxC">
-                    <rect key="frame" x="187.66666666666666" y="120" width="0.0" height="58"/>
+                    <rect key="frame" x="207" y="120" width="0.0" height="58"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="58" id="o8K-5y-dei"/>
                     </constraints>
@@ -53,13 +53,13 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="eFV-Tv-aEq">
-                    <rect key="frame" x="5" y="543" width="365" height="215"/>
+                    <rect key="frame" x="5" y="627" width="404" height="215"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="HFE-j5-G3B">
-                            <rect key="frame" x="0.0" y="0.0" width="365" height="105"/>
+                            <rect key="frame" x="0.0" y="0.0" width="404" height="105"/>
                             <subviews>
                                 <view multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ssf-1n-U2S" customClass="WeatherParamView" customModule="WeatherApp" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="118.33333333333333" height="105"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="131" height="105"/>
                                     <color key="backgroundColor" white="1" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
@@ -71,7 +71,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lqV-KA-GBB" customClass="WeatherParamView" customModule="WeatherApp" customModuleProvider="target">
-                                    <rect key="frame" x="123.33333333333334" y="0.0" width="118.33333333333334" height="105"/>
+                                    <rect key="frame" x="136" y="0.0" width="131" height="105"/>
                                     <color key="backgroundColor" white="1" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
@@ -83,7 +83,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1uT-3s-1dC" customClass="WeatherParamView" customModule="WeatherApp" customModuleProvider="target">
-                                    <rect key="frame" x="246.66666666666666" y="0.0" width="118.33333333333334" height="105"/>
+                                    <rect key="frame" x="272" y="0.0" width="132" height="105"/>
                                     <color key="backgroundColor" white="1" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
@@ -97,10 +97,10 @@
                             </subviews>
                         </stackView>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="96V-4n-k0e">
-                            <rect key="frame" x="0.0" y="110" width="365" height="105"/>
+                            <rect key="frame" x="0.0" y="110" width="404" height="105"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NGg-2T-56f" customClass="WeatherParamView" customModule="WeatherApp" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="118.33333333333333" height="105"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="131.5" height="105"/>
                                     <color key="backgroundColor" white="1" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
@@ -112,7 +112,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ddp-5w-LTq" customClass="WeatherParamView" customModule="WeatherApp" customModuleProvider="target">
-                                    <rect key="frame" x="123.33333333333334" y="0.0" width="118.33333333333334" height="105"/>
+                                    <rect key="frame" x="136.5" y="0.0" width="131" height="105"/>
                                     <color key="backgroundColor" white="1" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
@@ -124,10 +124,10 @@
                                     </userDefinedRuntimeAttributes>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aNL-4e-h1I">
-                                    <rect key="frame" x="246.66666666666666" y="0.0" width="118.33333333333334" height="105"/>
+                                    <rect key="frame" x="272.5" y="0.0" width="131.5" height="105"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XYZ-TZ-ydd">
-                                            <rect key="frame" x="0.0" y="0.0" width="118.33333333333333" height="105"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="131.5" height="105"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                             <state key="normal" title="More details">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -158,10 +158,10 @@
                     </constraints>
                 </stackView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Ja0-tS-0SO">
-                    <rect key="frame" x="100.33333333333333" y="303" width="174.33333333333337" height="106"/>
+                    <rect key="frame" x="120" y="345" width="174.5" height="106"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y3h-Ce-GC1">
-                            <rect key="frame" x="0.0" y="0.0" width="174.33333333333334" height="40"/>
+                            <rect key="frame" x="0.0" y="0.0" width="174.5" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="ynP-ZC-gcW"/>
                             </constraints>
@@ -170,34 +170,46 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="14.29 C" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GC4-0m-R0U">
-                            <rect key="frame" x="0.0" y="45" width="174.33333333333334" height="61"/>
+                            <rect key="frame" x="0.0" y="45" width="174.5" height="61"/>
                             <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="55"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
                 </stackView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YOo-vW-ii9">
+                    <rect key="frame" x="290" y="81" width="18" height="22"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" image="arrow.clockwise" catalog="system"/>
+                    <connections>
+                        <action selector="updateDataAction:" destination="-1" eventType="touchUpInside" id="3uz-Ir-EdZ"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.26795590758677568" green="0.026940039946870758" blue="0.86082249365482233" alpha="0.84928831335616439" colorSpace="custom" customColorSpace="displayP3"/>
             <constraints>
+                <constraint firstItem="YOo-vW-ii9" firstAttribute="leading" secondItem="5Af-v6-Zq9" secondAttribute="trailing" constant="8" id="HP1-ZW-Nfw"/>
                 <constraint firstItem="eFV-Tv-aEq" firstAttribute="top" relation="greaterThanOrEqual" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="100" id="J0j-d2-7pz"/>
                 <constraint firstItem="orn-Np-QxC" firstAttribute="top" secondItem="5Af-v6-Zq9" secondAttribute="bottom" constant="8" id="NHH-Jt-3Xe"/>
                 <constraint firstItem="Ja0-tS-0SO" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="-50" id="OyE-gE-m44"/>
+                <constraint firstItem="YOo-vW-ii9" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="37" id="PMz-GE-pm3"/>
                 <constraint firstItem="eFV-Tv-aEq" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="STr-jH-EPo"/>
                 <constraint firstItem="eFV-Tv-aEq" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="5" id="ZNK-P2-aFF"/>
                 <constraint firstItem="5Af-v6-Zq9" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="132" id="bvx-xT-Jpj"/>
                 <constraint firstItem="Ja0-tS-0SO" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="dZs-k7-fSJ"/>
                 <constraint firstItem="5Af-v6-Zq9" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="i6p-vD-GGP"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="YOo-vW-ii9" secondAttribute="trailing" constant="106" id="mEf-To-RWP"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="eFV-Tv-aEq" secondAttribute="bottom" constant="20" id="rXc-vv-UIE"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="eFV-Tv-aEq" secondAttribute="trailing" constant="5" id="s1G-TR-7s9"/>
                 <constraint firstItem="orn-Np-QxC" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="tA2-Te-mkY"/>
                 <constraint firstItem="5Af-v6-Zq9" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="28" id="wmP-Be-nQH"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <point key="canvasLocation" x="-146.37681159420291" y="22.767857142857142"/>
+            <point key="canvasLocation" x="-146.40000000000001" y="22.167487684729064"/>
         </view>
     </objects>
     <resources>
+        <image name="arrow.clockwise" catalog="system" width="115" height="128"/>
         <image name="drizzle_small" width="32" height="32"/>
         <image name="sunrise" width="50" height="50"/>
         <image name="sunset" width="50" height="50"/>

@@ -20,9 +20,9 @@ class ForecastTableViewController: UITableViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        tableView.register(ForecastTableViewCell.self, forCellReuseIdentifier: cellId)
-        tableView.dataSource = self
-        tableView.delegate = self
+        self.tableView.register(ForecastTableViewCell.self, forCellReuseIdentifier: cellId)
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
     }
     
     override func viewDidLayoutSubviews() {
@@ -31,19 +31,21 @@ class ForecastTableViewController: UITableViewController{
         gradientLayer.locations = [0.0, 1.0]
         gradientLayer.frame = view.bounds
         view.layer.insertSublayer(gradientLayer, at:0)
+        self.tableView.translatesAutoresizingMaskIntoConstraints = false
+        //add progress animation
     }
     
     override func viewWillAppear(_ animated: Bool) {
         service.getForecastWeather(with: cityName, completion: loadDataCompletion)
-       
     }
     
 
     // MARK: - Table view data source
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data?.list.count ?? 0
     }
+
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! ForecastTableViewCell

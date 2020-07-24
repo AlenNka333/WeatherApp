@@ -156,7 +156,8 @@
 		33F9B60B24C23A13005B7770 /* NetworkDataManager */ = {
 			isa = PBXGroup;
 			children = (
-				33F9B61324C3199B005B7770 /* ApiDataManager */,
+				33F9B60C24C23A3F005B7770 /* ApiDataManager.swift */,
+				33F9B61424C319AE005B7770 /* ApiDataManagerErrors.swift */,
 			);
 			path = NetworkDataManager;
 			sourceTree = "<group>";
@@ -167,15 +168,6 @@
 				33F9B61624C31AE8005B7770 /* LocationHelper */,
 			);
 			path = ApiDataHelpers;
-			sourceTree = "<group>";
-		};
-		33F9B61324C3199B005B7770 /* ApiDataManager */ = {
-			isa = PBXGroup;
-			children = (
-				33F9B60C24C23A3F005B7770 /* ApiDataManager.swift */,
-				33F9B61424C319AE005B7770 /* ApiDataManagerErrors.swift */,
-			);
-			path = ApiDataManager;
 			sourceTree = "<group>";
 		};
 		33F9B61624C31AE8005B7770 /* LocationHelper */ = {

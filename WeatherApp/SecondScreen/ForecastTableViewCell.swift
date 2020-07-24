@@ -31,7 +31,7 @@ class ForecastTableViewCell: UITableViewCell {
         weatherDescription.translatesAutoresizingMaskIntoConstraints = false
         temperature.translatesAutoresizingMaskIntoConstraints = false
         
-        date.setSizeFont(sizeFont: 25)
+        date.setSizeFont(sizeFont: 20)
         weatherDescription.setSizeFont(sizeFont: 18)
         temperature.setSizeFont(sizeFont: 30)
         
@@ -40,7 +40,7 @@ class ForecastTableViewCell: UITableViewCell {
         contentView.addSubview(weatherDescription)
         contentView.addSubview(temperature)
         
-        contentView.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+        contentView.backgroundColor = UIColor.white.withAlphaComponent(0.3)
         
         let views = [
             "image" : weatherImageView,
@@ -61,7 +61,7 @@ class ForecastTableViewCell: UITableViewCell {
             metrics: nil,
             views: views)
         allConstraints += NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|-[date]-[description]-|",
+            withVisualFormat: "V:|-[date]-15-[description]-|",
             options: [],
             metrics: nil,
             views: views)
@@ -77,6 +77,8 @@ class ForecastTableViewCell: UITableViewCell {
             views: views)
         
         NSLayoutConstraint.activate(allConstraints)
+        
+        
     }
 
 }
