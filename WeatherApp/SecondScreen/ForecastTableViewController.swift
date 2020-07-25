@@ -13,7 +13,7 @@ import SnapKit
 class ForecastTableViewController: UITableViewController{
     
     let cellId = "cellId"
-    var data: ForecastWeather? = nil
+    var data = [Forecast]()
     var cityName: String = "Minsk"
     
     let service = WeatherService()
@@ -23,16 +23,18 @@ class ForecastTableViewController: UITableViewController{
         
         navigationController?.isNavigationBarHidden = false
         self.tableView.register(ForecastTableViewCell.self, forCellReuseIdentifier: cellId)
-        self.tableView.dataSource = self
-        self.tableView.delegate = self
+    
     }
     
     override func viewDidLayoutSubviews() {
+        
         let gradientLayer = CAGradientLayer()
         gradientLayer.colors = [UIColor.init(named: "Picotee Blue")!.cgColor, UIColor.init(named: "Wisteria")!.cgColor]
         gradientLayer.locations = [0.0, 1.0]
-        gradientLayer.frame = view.bounds
-        view.layer.insertSublayer(gradientLayer, at:0)
+        gradientLayer.frame = UIScreen.main.bounds
+        let backgroundView = UIView(frame: UIScreen.main.bounds)
+        backgroundView.layer.addSublayer(gradientLayer)
+        self.tableView.backgroundView = backgroundView
         //add progress animation
     }
     
@@ -44,14 +46,14 @@ class ForecastTableViewController: UITableViewController{
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data?.list.count ?? 0
+        return data.count
     }
 
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! ForecastTableViewCell
-        cell.configure(with: (data?.list[indexPath.row])!) //!!!!!!!
-        cell.backgroundColor = UIColor.white.withAlphaComponent(0.3)
+        cell.configure(with: (data[indexPath.row]))
+        cell.backgroundColor = UIColor.clear
         return cell
     }
 
@@ -66,7 +68,7 @@ private extension ForecastTableViewController {
             case .failure(let error):
                 self?.showAlert(with: error)
             case .success(let result):
-                self?.data = result
+                self?.data = result.list
                 self?.tableView.reloadData()
             }
         }
