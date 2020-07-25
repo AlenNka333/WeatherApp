@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class ForecastTableViewCell: UITableViewCell {
     
@@ -17,76 +18,56 @@ class ForecastTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
-        weatherImageView.translatesAutoresizingMaskIntoConstraints = false
-        date.translatesAutoresizingMaskIntoConstraints = false
-        weatherDescription.translatesAutoresizingMaskIntoConstraints = false
-        temperature.translatesAutoresizingMaskIntoConstraints = false
-        
-        date.setSizeFont(sizeFont: 25)
+        commonInit()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func configure(with weather: Forecast) {
+        self.date.text = weather.dtTxt
+        self.weatherDescription.text = weather.weather[0].description
+        self.temperature.text = "\(weather.main.feelsLike) °C"
+    }
+    
+    func commonInit() {
+    
+        date.setSizeFont(sizeFont: 20)
+        date.textColor = .white
         weatherDescription.setSizeFont(sizeFont: 18)
+        weatherDescription.textColor = .white
         temperature.setSizeFont(sizeFont: 30)
+        temperature.textColor = .white
         
         contentView.addSubview(weatherImageView)
         contentView.addSubview(date)
         contentView.addSubview(weatherDescription)
         contentView.addSubview(temperature)
         
-        contentView.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+        contentView.backgroundColor = .clear
+        weatherImageView.snp.makeConstraints {
+            $0.top.bottom.left.equalToSuperview()
+            $0.width.equalTo(100)
+        }
         
-        let views = [
-            "image" : weatherImageView,
-            "date" : date,
-            "description" : weatherDescription,
-            "temperature" : temperature
-        ]
+        temperature.snp.makeConstraints {
+            $0.right.equalToSuperview()
+            $0.bottom.equalToSuperview()
+        }
         
-        var allConstraints: [NSLayoutConstraint] = []
-        allConstraints += NSLayoutConstraint.constraints(
-            withVisualFormat: "V:-[image(50)]",
-            options: [],
-            metrics: nil,
-            views: views)
-        allConstraints += NSLayoutConstraint.constraints(
-            withVisualFormat: "V:[temperature]-|",
-            options: [],
-            metrics: nil,
-            views: views)
-        allConstraints += NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|-[date]-[description]-|",
-            options: [],
-            metrics: nil,
-            views: views)
-        allConstraints += NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|-[image(50)]-[name]-|",
-            options: [],
-            metrics: nil,
-            views: views)
-        allConstraints += NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|-[image(50)]-[description]-[temperature]-|",
-            options: [],
-            metrics: nil,
-            views: views)
+        date.snp.makeConstraints {
+            $0.top.equalToSuperview().offset(10)
+            $0.left.equalTo(weatherImageView.snp.right).offset(8)
+        }
         
-        NSLayoutConstraint.activate(allConstraints)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+        weatherDescription.snp.makeConstraints {
+            $0.bottom.equalToSuperview().offset(-10)
+            $0.left.equalTo(weatherImageView.snp.right).offset(8)
+        }
     }
 
 }
 
-extension UILabel {
-    
-    func setSizeFont (sizeFont: Double) {
-        self.font = UIFont(name: "Times New Roman", size: CGFloat(sizeFont))
-    }
-    
-}
 
 

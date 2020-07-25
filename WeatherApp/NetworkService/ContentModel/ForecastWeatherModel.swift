@@ -15,21 +15,22 @@ struct ForecastWeather: Codable {
 
 struct City: Codable {
     let name: String
+    let sunrise: Int
+    let sunset: Int
 }
 
 struct Forecast: Codable {
     let main: Temperature
-    let weather: Array<DetailWeather>
+    let weather: Array<Details>
     let dtTxt: String
 }
 
 struct Temperature: Codable {
-    let feelsLike: String
+    let temp: Double
+    let feelsLike: Double
 }
 
-struct DetailWeather: Codable {
-    let main: String
+struct Details: Codable {
     let description: String
     let icon: String
 }
-
