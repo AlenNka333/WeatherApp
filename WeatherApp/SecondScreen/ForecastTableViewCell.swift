@@ -48,7 +48,7 @@ class ForecastTableViewCell: UITableViewCell {
         contentView.backgroundColor = .clear
         weatherImageView.snp.makeConstraints {
             $0.top.bottom.left.equalToSuperview()
-            $0.size.equalTo(100)
+            $0.width.equalTo(100)
         }
         
         temperature.snp.makeConstraints {

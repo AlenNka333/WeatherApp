@@ -23,6 +23,7 @@ class ForecastTableViewController: GradientTableViewController{
         
         navigationController?.isNavigationBarHidden = false
         self.tableView.register(ForecastTableViewCell.self, forCellReuseIdentifier: cellId)
+        self.tableView.rowHeight = 100
     
     }
     
