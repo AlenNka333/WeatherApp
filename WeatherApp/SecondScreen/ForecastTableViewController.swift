@@ -8,6 +8,7 @@
 
 
 import UIKit
+import SnapKit
 
 class ForecastTableViewController: UITableViewController{
     
@@ -31,7 +32,6 @@ class ForecastTableViewController: UITableViewController{
         gradientLayer.locations = [0.0, 1.0]
         gradientLayer.frame = view.bounds
         view.layer.insertSublayer(gradientLayer, at:0)
-        self.tableView.translatesAutoresizingMaskIntoConstraints = false
         //add progress animation
     }
     
@@ -49,9 +49,8 @@ class ForecastTableViewController: UITableViewController{
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! ForecastTableViewCell
-        cell.date.text = data?.list[indexPath.row].dtTxt
-        cell.weatherDescription.text = data?.list[indexPath.row].weather[0].description
-        cell.temperature.text = "\(data?.list[indexPath.row].main.feelsLike ?? 0) °C"
+        cell.configure(with: (data?.list[indexPath.row])!) //!!!!!!!
+        cell.backgroundColor = UIColor.white.withAlphaComponent(0.3)
         return cell
     }
 

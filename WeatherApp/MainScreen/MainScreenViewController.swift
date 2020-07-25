@@ -58,9 +58,8 @@ class MainScreenViewController: GradientScreenViewController, UITextFieldDelegat
     
     @IBAction func goToForecastAction(_ sender: UIButton) {
         let secondScreen = ForecastTableViewController()
-        let navigationController = UINavigationController(rootViewController: secondScreen)
         secondScreen.cityName = self.cityName
-        self.present(navigationController, animated: true, completion: nil)
+        self.navigationController?.pushViewController(secondScreen, animated: true)
     }
     
     @IBAction func updateDataAction(_ sender: UIButton) {
