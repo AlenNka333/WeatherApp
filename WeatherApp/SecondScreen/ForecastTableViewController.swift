@@ -10,7 +10,7 @@
 import UIKit
 import SnapKit
 
-class ForecastTableViewController: UITableViewController{
+class ForecastTableViewController: GradientTableViewController{
     
     let cellId = "cellId"
     var data = [Forecast]()
@@ -24,18 +24,6 @@ class ForecastTableViewController: UITableViewController{
         navigationController?.isNavigationBarHidden = false
         self.tableView.register(ForecastTableViewCell.self, forCellReuseIdentifier: cellId)
     
-    }
-    
-    override func viewDidLayoutSubviews() {
-        
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = [UIColor.init(named: "Picotee Blue")!.cgColor, UIColor.init(named: "Wisteria")!.cgColor]
-        gradientLayer.locations = [0.0, 1.0]
-        gradientLayer.frame = UIScreen.main.bounds
-        let backgroundView = UIView(frame: UIScreen.main.bounds)
-        backgroundView.layer.addSublayer(gradientLayer)
-        self.tableView.backgroundView = backgroundView
-        //add progress animation
     }
     
     override func viewWillAppear(_ animated: Bool) {

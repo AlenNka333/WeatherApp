@@ -23,6 +23,7 @@
 		335AED9624C0C74500554237 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 335AED9524C0C74500554237 /* Assets.xcassets */; };
 		335AED9924C0C74500554237 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 335AED9724C0C74500554237 /* LaunchScreen.storyboard */; };
 		33D8B32C24CA407000338354 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D8B32B24CA407000338354 /* Extensions.swift */; };
+		33EBE9CE24CCAE5300E9166B /* GradientTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33EBE9CD24CCAE5300E9166B /* GradientTableViewController.swift */; };
 		33F9B60D24C23A3F005B7770 /* ApiDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F9B60C24C23A3F005B7770 /* ApiDataManager.swift */; };
 		33F9B61024C23BA0005B7770 /* LocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F9B60F24C23BA0005B7770 /* LocationHelper.swift */; };
 		33F9B61224C31898005B7770 /* LocationHelperErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F9B61124C31898005B7770 /* LocationHelperErrors.swift */; };
@@ -50,6 +51,7 @@
 		335AED9824C0C74500554237 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		335AED9A24C0C74500554237 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		33D8B32B24CA407000338354 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		33EBE9CD24CCAE5300E9166B /* GradientTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientTableViewController.swift; sourceTree = "<group>"; };
 		33F9B60C24C23A3F005B7770 /* ApiDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiDataManager.swift; sourceTree = "<group>"; };
 		33F9B60F24C23BA0005B7770 /* LocationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHelper.swift; sourceTree = "<group>"; };
 		33F9B61124C31898005B7770 /* LocationHelperErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHelperErrors.swift; sourceTree = "<group>"; };
@@ -111,12 +113,10 @@
 		33326BCF24C9C13D00E1692C /* MainScreen */ = {
 			isa = PBXGroup;
 			children = (
-				33326BC824C9C12400E1692C /* GradientScreenViewController.swift */,
 				33326BC724C9C12400E1692C /* MainScreenViewController.swift */,
 				EA13256724CC2A84006F20EB /* MainScreenViewController.xib */,
 				33326BCE24C9C12F00E1692C /* WeatherParamView */,
 				33079FC724CA019700AB7178 /* GeneralErrors.swift */,
-				33079FC924CA0EA600AB7178 /* DateHelper.swift */,
 			);
 			path = MainScreen;
 			sourceTree = "<group>";
@@ -142,10 +142,11 @@
 		335AED8B24C0C74000554237 /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				33EBE9CC24CCAE2A00E9166B /* GradientBackground */,
 				33079FBF24C9CB8400AB7178 /* SecondScreen */,
 				33326BCF24C9C13D00E1692C /* MainScreen */,
 				3322F31824C236FF007C56A8 /* NetworkService */,
-				33F9B60E24C23B7C005B7770 /* ApiDataHelpers */,
+				33F9B60E24C23B7C005B7770 /* Helpers */,
 				33F9B60B24C23A13005B7770 /* NetworkDataManager */,
 				335AED8C24C0C74000554237 /* AppDelegate.swift */,
 				335AED9524C0C74500554237 /* Assets.xcassets */,
@@ -157,6 +158,15 @@
 			path = WeatherApp;
 			sourceTree = "<group>";
 		};
+		33EBE9CC24CCAE2A00E9166B /* GradientBackground */ = {
+			isa = PBXGroup;
+			children = (
+				33326BC824C9C12400E1692C /* GradientScreenViewController.swift */,
+				33EBE9CD24CCAE5300E9166B /* GradientTableViewController.swift */,
+			);
+			path = GradientBackground;
+			sourceTree = "<group>";
+		};
 		33F9B60B24C23A13005B7770 /* NetworkDataManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -166,12 +176,13 @@
 			path = NetworkDataManager;
 			sourceTree = "<group>";
 		};
-		33F9B60E24C23B7C005B7770 /* ApiDataHelpers */ = {
+		33F9B60E24C23B7C005B7770 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				33079FC924CA0EA600AB7178 /* DateHelper.swift */,
 				33F9B61624C31AE8005B7770 /* LocationHelper */,
 			);
-			path = ApiDataHelpers;
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		33F9B61624C31AE8005B7770 /* LocationHelper */ = {
@@ -322,6 +333,7 @@
 				33326BB324C8850C00E1692C /* WeatherService.swift in Sources */,
 				33079FC824CA019700AB7178 /* GeneralErrors.swift in Sources */,
 				3322F31D24C23742007C56A8 /* ForecastWeatherModel.swift in Sources */,
+				33EBE9CE24CCAE5300E9166B /* GradientTableViewController.swift in Sources */,
 				3322F31B24C23732007C56A8 /* CurrentWeatherModel.swift in Sources */,
 				33079FC124C9CBA200AB7178 /* ForecastTableViewCell.swift in Sources */,
 				33326BCD24C9C12400E1692C /* GradientScreenViewController.swift in Sources */,

@@ -38,7 +38,6 @@ class MainScreenViewController: GradientScreenViewController, UITextFieldDelegat
         locationManager.requestLocation()
     }
     
-    
     //MARK: - LocationManager
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

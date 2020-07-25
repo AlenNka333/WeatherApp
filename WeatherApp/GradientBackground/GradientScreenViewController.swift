@@ -20,7 +20,6 @@ class GradientScreenViewController: UIViewController {
         gradientLayer.colors = [UIColor.init(named: "Picotee Blue")!.cgColor, UIColor.init(named: "Wisteria")!.cgColor]
         gradientLayer.locations = [0.0, 1.0]
         gradientLayer.frame = view.bounds
-
         view.layer.insertSublayer(gradientLayer, at:0)
     }
 }
