@@ -18,8 +18,8 @@ class MainScreenViewController: GradientScreenViewController, UITextFieldDelegat
 
     @IBOutlet weak var cityNameTextField: UITextField!
     @IBOutlet weak var lastUpdateTimeLabel: UILabel!
-    @IBOutlet weak var weatherDescriptionLabel: UILabel!
-    @IBOutlet weak var temperatureLabel: UILabel!
+    //@IBOutlet weak var weatherDescriptionLabel: UILabel!
+    //@IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var sunriseView: WeatherParamView!
     @IBOutlet weak var sunsetView: WeatherParamView!
     @IBOutlet weak var windView: WeatherParamView!
@@ -31,14 +31,16 @@ class MainScreenViewController: GradientScreenViewController, UITextFieldDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         cityNameTextField.delegate = self
-        
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        hideElements(with: true)
+        navigationController?.isNavigationBarHidden = true
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
         locationManager.requestLocation()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        hideElements(with: true)
     }
     
     //MARK: - LocationManager
@@ -84,8 +86,11 @@ class MainScreenViewController: GradientScreenViewController, UITextFieldDelegat
         let sunriseTime = DateHelper.convertToTime(with: Double(data?.sys.sunrise ?? 0))
         let sunsetTime = DateHelper.convertToTime(with: Double(data?.sys.sunset ?? 0))
         self.lastUpdateTimeLabel.text = "Updated at:\n\(localDate)"
-        self.weatherDescriptionLabel.text = data?.weather[0].main
-        self.temperatureLabel.text = "\(data?.main.temp ?? 0) °C"
+        
+        //не нашел, где на старом экране это было
+        
+        //self.weatherDescriptionLabel.text = data?.weather[0].main
+        //self.temperatureLabel.text = "\(data?.main.temp ?? 0) °C"
         self.sunriseView.valueLabel.text = "\(sunriseTime)"
         self.sunsetView.valueLabel.text = "\(sunsetTime)"
         self.windView.valueLabel.text = "\(data?.wind.speed ?? 0)"
@@ -117,8 +122,8 @@ private extension MainScreenViewController {
     }
     
     func hideElements (with state: Bool) {
-        self.weatherDescriptionLabel.isHidden = state
-        self.temperatureLabel.isHidden = state
+        //self.weatherDescriptionLabel.isHidden = state
+        //self.temperatureLabel.isHidden = state
         self.stackView.isHidden = state
         self.secondScreenButton.isHidden = state
     }

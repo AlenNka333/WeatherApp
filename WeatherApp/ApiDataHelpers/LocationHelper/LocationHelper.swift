@@ -10,16 +10,13 @@ import CoreLocation
 
 class LocationHelper {
     
-    func getCoordinates (with city: String, completion: @escaping (_ location: Result<CLLocationCoordinate2D, LocationHelperErrors>) -> Void) {
-        let geocoder = CLGeocoder()
-        geocoder.geocodeAddressString(city) { (placemarks, error) in
-            guard let placemarks = placemarks,
-            let location = placemarks.first?.location?.coordinate else {
+    func getCoordinates(with city: String, completion: @escaping (_ location: Result<CLLocationCoordinate2D, LocationHelperErrors>) -> Void) {
+        CLGeocoder().geocodeAddressString(city) { (placemarks, error) in
+            guard let location = placemarks?.first?.location?.coordinate else {
                 completion(.failure(.invalidAdress))
                 return
             }
             completion(.success(location))
         }
-        
     }
 }

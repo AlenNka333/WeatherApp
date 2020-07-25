@@ -14,13 +14,14 @@ class ForecastTableViewController: UITableViewController{
     
     let cellId = "cellId"
     var data: ForecastWeather? = nil
-    var cityName: String = ""
+    var cityName: String = "Minsk"
     
     let service = WeatherService()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
+        navigationController?.isNavigationBarHidden = false
         self.tableView.register(ForecastTableViewCell.self, forCellReuseIdentifier: cellId)
         self.tableView.dataSource = self
         self.tableView.delegate = self

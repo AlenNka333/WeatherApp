@@ -15,15 +15,15 @@ class WeatherService {
     private let helper = LocationHelper()
 
     func getCurrentWeather(with location: CLLocationCoordinate2D, completion: @escaping ((Result<CurrentWeather, Error>) -> ())) {
-            self.manager.getCurrentWeather(with: location) {
-                    switch $0 {
-                    case .failure(let error):
-                        completion(.failure(error))
-                        return
-                    case .success(let weather):
-                        completion (.success(weather))
-                    }
+        self.manager.getCurrentWeather(with: location) {
+            switch $0 {
+            case .failure(let error):
+                completion(.failure(error))
+                return
+            case .success(let weather):
+                completion (.success(weather))
             }
+        }
     }
     
     func getCurrentWeather(with city: String, completion: @escaping ((Result<CurrentWeather, Error>) -> ())) {
@@ -44,7 +44,6 @@ class WeatherService {
                 }
             }
         }
-        
     }
     
     func getForecastWeather(with city: String, completion: @escaping ((Result<ForecastWeather, Error>) -> ())) {
@@ -65,9 +64,7 @@ class WeatherService {
                 }
             }
         }
-        
     }
-    
 }
 
 private extension WeatherService {
@@ -84,5 +81,4 @@ private extension WeatherService {
             }
         }
     }
-       
-   }
+}
