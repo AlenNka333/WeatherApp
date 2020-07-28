@@ -29,6 +29,7 @@ class ForecastTableViewCell: UITableViewCell {
         self.date.text = weather.dtTxt
         self.weatherDescription.text = weather.weather[0].description
         self.temperature.text = "\(weather.main.feelsLike) °C"
+        self.weatherImageView.image = weather.weather[0].uiImage
     }
     
     func commonInit() {
