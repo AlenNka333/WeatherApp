@@ -6,6 +6,6 @@ App supports gps, so, you don't have to enter city name to see the weather on yo
 I used pods like snapKit to make constraints in tableViewCell easier. Soon app will support saving images in cash
 
 What to do:
- - Add ability to save images (NSKeyedArchiver)
+ - Add ability to save images (UserDefaults) +
  - Sort files correct by folders
  - Rewrite on MVP
