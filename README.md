@@ -8,3 +8,5 @@ App supports gps, so, you don't have to enter city name to see the weather on yo
 - MVP architecture
 - GCD
 - xib + code ui
+
+Worked in bitbucket and jira, so full history of commits, all branches are there
