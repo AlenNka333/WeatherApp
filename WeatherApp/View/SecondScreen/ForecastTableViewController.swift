@@ -10,27 +10,41 @@
 import UIKit
 import SnapKit
 
-class ForecastTableViewController: GradientTableViewController{
+class ForecastTableViewController: GradientTableViewController, ForecastWeatherDelegate {
     
+    private let forecastWeatherPresenter = SecondScreenViewPresenter(with: WeatherService())
     let cellId = "cellId"
     var data = [Forecast]()
     var cityName: String = "Minsk"
     
-    let service = WeatherService()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         navigationController?.isNavigationBarHidden = false
         self.tableView.register(ForecastTableViewCell.self, forCellReuseIdentifier: cellId)
         self.tableView.rowHeight = 100
+        self.forecastWeatherPresenter.setDelegate(forecastWeatherDelegate: self)
     
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        service.getForecastWeather(with: cityName, completion: loadDataCompletion)
+        self.forecastWeatherPresenter.getForecastWeather(in: cityName)
     }
     
+    //MARK: - Protocol's methods
+    
+    func displayForecastWeather(with weather: ForecastWeather) {
+        self.data = weather.list
+        self.tableView.reloadData()
+    }
+    
+    func showAlert(with error: Error) {
+        let alert = UIAlertController(title: "Warning", message: "\(error.localizedDescription)", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Dismiss", style: .default, handler: nil)
+        alert.addAction(action)
+        self.present(alert, animated: true, completion: nil)
+        
+    }
 
     // MARK: - Table view data source
     
@@ -46,29 +60,4 @@ class ForecastTableViewController: GradientTableViewController{
         return cell
     }
 
-
-
-}
-
-private extension ForecastTableViewController {
-    var loadDataCompletion: ((Result<ForecastWeather, Error>) -> ()) {
-        return { [weak self] in
-            switch $0{
-            case .failure(let error):
-                self?.showAlert(with: error)
-            case .success(let result):
-                self?.data = result.list
-                self?.tableView.reloadData()
-            }
-        }
-    }
-    
-    func showAlert(with error: Error) {
-        let alert = UIAlertController(title: "Warning", message: "\(error.localizedDescription)", preferredStyle: .alert)
-        let action = UIAlertAction(title: "Dismiss", style: .default, handler: nil)
-        alert.addAction(action)
-        self.present(alert, animated: true, completion: nil)
-        
-    }
-    
 }

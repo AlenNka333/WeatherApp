@@ -20,7 +20,7 @@ class DownLoadImageHelper {
             let image = CashImageHelper.retrieve(forKey: iconCode)
             return (image, nil)
         } else {
-            guard let iconURL = URL(string: imgPath + iconCode + "@2x.png") else {
+            guard let iconURL = URL(string: imgPath + iconCode + ".png") else {
                 return (nil, ImageHelperErrors.invalidUrl)
             }
             guard let data = try? Data(contentsOf: iconURL) else {
