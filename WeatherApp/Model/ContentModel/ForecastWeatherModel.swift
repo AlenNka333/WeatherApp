@@ -33,13 +33,13 @@ struct Temperature: Decodable {
 
 class Details: Decodable {
     var description: String
-    var uiImage: UIImage?
     var icon: String
+    var uiImage: UIImage?
     
     enum CodingKeys: String, CodingKey {
         case description
-        case weatherImage = "uiImage"
         case icon
+        case weatherImage = "uiImage"
     }
     
     required init(from decoder: Decoder) throws {
@@ -51,7 +51,10 @@ class Details: Decodable {
         
         let (img, error) = DownLoadImageHelper.downloadImage(with: name)
         
-        if error != nil { throw error.unsafelyUnwrapped }
+        if error != nil {
+            throw error.unsafelyUnwrapped
+            
+        }
         else {
             self.uiImage = img
         }

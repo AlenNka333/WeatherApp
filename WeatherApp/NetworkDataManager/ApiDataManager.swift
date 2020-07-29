@@ -50,7 +50,6 @@ class ApiDataManager {
                 completion(.failure(ApiDataManagerErrors.decodeError))
                 return
             case .success(let weather):
-                
                 completion(.success(weather))
                 return
             }
@@ -100,6 +99,7 @@ private extension ApiDataManager {
                 }
                 
                 guard let result = try? self.decoder.decode(T.self, from: data) else {
+                    
                     completion(.failure(ApiDataManagerErrors.invalidData))
                     return
                 }
