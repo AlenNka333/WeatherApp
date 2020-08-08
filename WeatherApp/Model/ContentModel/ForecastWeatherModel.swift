@@ -39,7 +39,6 @@ class Details: Decodable {
     enum CodingKeys: String, CodingKey {
         case description
         case icon
-        case weatherImage = "uiImage"
     }
     
     required init(from decoder: Decoder) throws {

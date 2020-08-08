@@ -8,22 +8,22 @@
 
 import Foundation
 
-protocol ForecastWeatherDelegate {
+protocol ForecastWeatherView {
     func displayForecastWeather(with weather: ForecastWeather)
     func showAlert(with error: Error)
 }
 
 class SecondScreenViewPresenter {
     
-    private var delegate: ForecastWeatherDelegate?
+    private var delegate: ForecastWeatherView?
     let service: WeatherService
     
     init(with weatherService: WeatherService) {
         self.service = weatherService
     }
     
-    func setDelegate(forecastWeatherDelegate: ForecastWeatherDelegate?) {
-        self.delegate = forecastWeatherDelegate
+    func attachView(view: ForecastWeatherView) {
+        self.delegate = view
     }
     
     func getForecastWeather(in city: String){
@@ -33,7 +33,6 @@ class SecondScreenViewPresenter {
 }
 
 private extension SecondScreenViewPresenter {
-   
     var loadDataCompletion: ((Result<ForecastWeather, Error>) -> ()) {
         return { [weak self] in
             switch $0{

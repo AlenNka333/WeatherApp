@@ -1,0 +1,10 @@
+input_dir: WeatherApp/Application
+output_dir: WeatherApp/Generated/
+
+xcassets:
+  inputs:
+    - Assets.xcassets
+    - Color.xcassets
+  outputs:
+    - templateName: swift5
+      output: Assets.swift

@@ -11,4 +11,5 @@ import Foundation
 enum ImageHelperErrors: Error {
     case invalidUrl
     case failedToLoad
+    case failedToStoreImage
 }

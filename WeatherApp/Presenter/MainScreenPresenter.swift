@@ -9,60 +9,46 @@
 import Foundation
 import CoreLocation
 
-protocol MainScreenViewDelegate: class {
-    
+protocol MainScreenView: class {
     func showAlert(with error: Error)
     func displayCurrentWeather(with data: CurrentWeather)
 }
 
-class MainScreenPresenter: NSObject, CLLocationManagerDelegate {
+class MainScreenPresenter: NSObject {
    
-    private var mainScreenViewDelegate: MainScreenViewDelegate?
-    let locationManager = CLLocationManager()
-    var service = WeatherService()
+    private weak var mainScreenView: MainScreenView?
+    var service: WeatherService
     
-    init (weatherService: WeatherService) {
-        self.service = weatherService
+    init (with service: WeatherService) {
+        self.service = service
     }
     
-    
-    func setViewDelegate(delegate: MainScreenViewDelegate?) {
-        self.mainScreenViewDelegate = delegate
-    }
-    
-    func checkCurrentLocation() {
-        locationManager.delegate = self
-        locationManager.requestAlwaysAuthorization()
-        locationManager.requestLocation()
+    func attachView(view: MainScreenView) {
+        self.mainScreenView = view
     }
     
     func updateData(with cityName: String) {
         self.service.getCurrentWeather(with: cityName, completion: loadDataCompletion)
     }
     
-    //MARK: - LocationManager
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let location = locations.first {
-            self.service.getCurrentWeather(with: location.coordinate, completion: loadDataCompletion)
-        }
+    func updateData(with location: CLLocationCoordinate2D) {
+        self.service.getCurrentWeather(with: location, completion: loadDataCompletion)
     }
-
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        self.mainScreenViewDelegate?.showAlert(with: error)
+    
+    func sendError(with error: Error) {
+        self.mainScreenView?.showAlert(with: error)
     }
     
 }
 
 private extension MainScreenPresenter {
-    
     var loadDataCompletion: ((Result<CurrentWeather, Error>) -> ()) {
         return { [weak self] in
             switch $0 {
             case .failure(let error):
-                self?.mainScreenViewDelegate?.showAlert(with: error)
+                self?.mainScreenView?.showAlert(with: error)
             case .success(let result):
-                self?.mainScreenViewDelegate?.displayCurrentWeather(with: result)
+                self?.mainScreenView?.displayCurrentWeather(with: result)
             }
         }
     }

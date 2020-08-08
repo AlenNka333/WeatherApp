@@ -26,7 +26,11 @@ class DownLoadImageHelper {
             guard let data = try? Data(contentsOf: iconURL) else {
                 return (nil, ImageHelperErrors.failedToLoad)
             }
-            return (UIImage(data: data), nil)
+            guard let image = UIImage(data: data) else {
+                return (nil, ImageHelperErrors.failedToStoreImage)
+            }
+            CashImageHelper.store(image: image, forKey: iconCode)
+            return (image, nil)
         }
     }
 }

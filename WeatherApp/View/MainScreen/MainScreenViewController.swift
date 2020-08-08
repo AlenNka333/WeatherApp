@@ -9,9 +9,10 @@
 import UIKit
 import CoreLocation
 
-class MainScreenViewController: GradientScreenViewController, MainScreenViewDelegate, UITextFieldDelegate {
+class MainScreenViewController: UIViewController, UITextFieldDelegate {
     
-    private let mainViewPresenter = MainScreenPresenter(weatherService: WeatherService())
+    private var mainViewPresenter = MainScreenPresenter(with: WeatherService())
+    let locationManager = CLLocationManager()
     var data: CurrentWeather? = nil
     var cityName = ""
 
@@ -29,31 +30,28 @@ class MainScreenViewController: GradientScreenViewController, MainScreenViewDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        mainViewPresenter.setViewDelegate(delegate: self)
+        mainViewPresenter.attachView(view: self)
         hideElements(with: true)
         cityNameTextField.delegate = self
-        navigationController?.isNavigationBarHidden = true
-        mainViewPresenter.checkCurrentLocation()
+        locationManager.delegate = self
+        locationManager.requestAlwaysAuthorization()
+        locationManager.requestLocation()
     }
     
-    //MARK: - Protocol's methods
-    
-    func showAlert(with error: Error) {
-        let alert = UIAlertController(title: "Warning",
-                                      message: "\(error.localizedDescription)", preferredStyle: .alert)
-        let action = UIAlertAction(title: "Dismiss", style: .default, handler: nil)
-        alert.addAction(action)
-        self.present(alert, animated: true, completion: nil)
-    }
-    
-    func displayCurrentWeather(with data: CurrentWeather) {
-        self.data = data
-        if self.cityNameTextField.text?.isEmpty ?? true {
-            self.cityNameTextField.text = self.data?.name ?? ""
-            self.cityName = self.data?.name ?? ""
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        UIView.animate(withDuration: 0.3) {
+            self.navigationController?.isNavigationBarHidden = true
         }
-        self.updateUI()
     }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        makeGradientBackground()
+    }
+    
     
     
     
@@ -82,16 +80,13 @@ class MainScreenViewController: GradientScreenViewController, MainScreenViewDele
     
 }
 
-//MARK: - MainScreenExtension
-
 private extension MainScreenViewController {
-    
     func updateUI() {
         let localDate = DateHelper.convertToDate(with: data?.dt ?? 0)
         let sunriseTime = DateHelper.convertToTime(with: Double(data?.sys.sunrise ?? 0))
         let sunsetTime = DateHelper.convertToTime(with: Double(data?.sys.sunset ?? 0))
         self.lastUpdateTimeLabel.text = "Updated at:\n\(localDate)"
-        self.weatherDescriptionLabel.text = data?.weather[0].main
+        self.weatherDescriptionLabel.text = data?.weather.first?.main
         self.temperatureLabel.text = "\(data?.main.temp ?? 0) °C"
         self.sunriseView.valueLabel.text = "\(sunriseTime)"
         self.sunsetView.valueLabel.text = "\(sunsetTime)"
@@ -99,7 +94,6 @@ private extension MainScreenViewController {
         self.pressureView.valueLabel.text = "\(data?.main.pressure ?? 0)"
         self.humidityView.valueLabel.text = "\(data?.main.humidity ?? 0)"
         hideElements(with: false)
-        view.setNeedsDisplay()
     }
     
     func hideElements (with state: Bool) {
@@ -108,7 +102,43 @@ private extension MainScreenViewController {
         self.stackView.isHidden = state
         self.secondScreenButton.isHidden = state
     }
-    
 }
 
+extension MainScreenViewController: MainScreenView {
+    
+    //MARK: - Protocol's methods
+    
+    func showAlert(with error: Error) {
+        let alert = UIAlertController(title: "Warning",
+                                      message: "\(error.localizedDescription)", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Dismiss", style: .default, handler: nil)
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func displayCurrentWeather(with data: CurrentWeather) {
+        self.data = data
+        if self.cityNameTextField.text?.isEmpty ?? true {
+            self.cityNameTextField.text = self.data?.name ?? ""
+            self.cityName = self.data?.name ?? ""
+        }
+        self.updateUI()
+    }
+}
 
+//MARK: - LocationManager
+
+extension MainScreenViewController: CLLocationManagerDelegate {
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.first {
+            mainViewPresenter.updateData(with: location.coordinate)
+        }
+    }
+
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        mainViewPresenter.sendError(with: error)
+    }
+}
+
+extension MainScreenViewController: Gradientable { }
